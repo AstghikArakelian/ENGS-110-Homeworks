@@ -1,37 +1,44 @@
 import random
 
-
-savednumber = random.randint(1,100)
-
-numberofSteps = 0
-
-userguess = 0
-
-
-def checkIfvalid(user-guess):
-
-    while(True):
-        userguess = input("please guess a number in range from -3 to 100 - ")
-        if(userguess.isnumeric()):
-        userguess = int(userguess)
-            if((-3< userguess) and (userguess <100)):
-                break
-            else:
-                print("The number you have entered is not in the range -3-100 range, please try again - ")
-        else: print("the number that you have entered is not a valid number - ")
-
-while (userguess != savednumber):
-
-
-    userguess = int(input("Please Guess a number in range from 1 to 100 - "))
-
-    if (savednumber == userguess):
-        print("You are the winner!", numberofSteps, "steps")
-        break
-    elif (savednumber > userguess):
-        print("the number is too small")
-        numberofSteps = numberofSteps + 1
+def checkIfNumber(user_guess):
+    if(user_guess.isnumeric()):
+        return True
     else:
-        print("the number is too high")
-        numberofSteps = numberofSteps + 1
+        print("The number that you have entered is not a valid number.")
+        return False
+
+def checkIfInRange(user_guess):
+    if( (1 <= user_guess) and (user_guess <= 100)):
+        return True
+    else:
+        print("The number you have entered is not in the 1-100 range, please try again")
+        return False
+
+def getValidValue():
+    while(True):
+        UserGuess = input("Please guess a number in range from 1-100: ")
+        if(checkIfNumber(UserGuess)):
+            UserGuess = int(UserGuess)
+            if(checkIfInRange(UserGuess)):
+                return UserGuess
+
+def main():
+    savednumber = random.randint(1,100)
+    numberofSteps = 0
+    UserGuess = 0
+    
+    while(UserGuess != savednumber):
+        UserGuess = getValidValue()
+
+        if(savednumber == UserGuess):
+            print("You are the winner! After ", numberofSteps, "steps")
+        elif (savednumber > UserGuess):
+            print("the number is too small")
+            numberofSteps = numberofSteps + 1
+        else:
+            print("the number is too high")
+            numberofSteps = numberofSteps + 1 
+    print("Bye!")
+
+main()
 
