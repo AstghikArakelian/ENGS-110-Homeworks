@@ -27,7 +27,8 @@ def main():
     b = 1
     c = 0
     sumo = 0
-    usernumber = getValidValue
+    usernumber = getValidValue()
+
     while(b < usernumber):
         sumo = sumo + b
         c = b
