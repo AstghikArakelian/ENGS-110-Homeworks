@@ -1,4 +1,4 @@
-
+import math
 def checkIfNumber(user_number):
     if(user_number.isnumeric()):
         return True
@@ -27,6 +27,8 @@ def main():
     b = 1
     c = 0
     sumo = 0
+    d = 1
+    e = 0
     usernumber = getValidValue()
 
     while(b < usernumber):
@@ -34,6 +36,16 @@ def main():
         c = b
         b = b + a
         a = c
-    print("The sum of all Fibonacci numbers smaller than", usernumber,"is", sumo, ".")   
+    print("The sum of all Fibonacci numbers smaller than", usernumber,"is", sumo, ".")
+
+    while(d < usernumber//2):
+        d = d + 1
+        if(usernumber % d == 0):
+            e = 1
+            break
+    if(e == 1):
+        print("not prime")
+    else:
+        print("prime")
 
 main()
