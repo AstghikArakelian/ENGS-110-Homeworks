@@ -1,13 +1,13 @@
 
 def checkIfNumber(user_number):
-    if(usernumber.isnumeric()):
+    if(user_number.isnumeric()):
         return True
     else:
         print("The number that you have entered is not a valid number.")
         return False
 
 def checkIfpositive(user_number):
-    if( 0 < usernumber ):
+    if( 0 < user_number ):
         return True
     else:
         print("The number you have entered is not a positive number")
@@ -27,9 +27,8 @@ def main():
     b = 1
     c = 0
     sumo = 0
-    
+    usernumber = getValidValue
     while(b < usernumber):
-        usernumber = getValidValue()
         sumo = sumo + b
         c = b
         b = b + a
