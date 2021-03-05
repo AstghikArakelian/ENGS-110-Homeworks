@@ -1,4 +1,4 @@
-import math
+
 def checkIfNumber(user_number):
     if(user_number.isnumeric()):
         return True
@@ -6,21 +6,19 @@ def checkIfNumber(user_number):
         print("The number that you have entered is not a valid number.")
         return False
 
-def checkIfpositive(user_number):
-    if( 0 < user_number ):
-        return True
-    else:
-        print("The number you have entered is not a positive number")
-        return False
 
 def getValidValue():
     while(True):
         usernumber = input("Please pick a positive number: ")
         if(checkIfNumber(usernumber)):
             usernumber = int(usernumber)
-            if(checkIfpositive(usernumber)):
-                return usernumber
+            return usernumber
 
+
+def DecimalToBinary(user_number):	
+	if (user_number > 1):
+		DecimalToBinary(user_number // 2)
+	print(user_number % 2, end = '')
 
 def main():
     a = 0
@@ -30,7 +28,8 @@ def main():
     d = 1
     e = 0
     usernumber = getValidValue()
-
+    
+    
     while(b < usernumber):
         sumo = sumo + b
         c = b
@@ -38,14 +37,27 @@ def main():
         a = c
     print("The sum of all Fibonacci numbers smaller than", usernumber,"is", sumo, ".")
 
-    while(d < usernumber//2):
-        d = d + 1
-        if(usernumber % d == 0):
-            e = 1
-            break
-    if(e == 1):
-        print("not prime")
+    
+    
+    
+    if(usernumber == 1 or usernumber == 0):
+        print(usernumber, "is neither prime nor composite")
     else:
-        print("prime")
+        while(d < usernumber//2):
+            d = d + 1
+            if(usernumber % d == 0):
+                e = 1
+                break
+        if(e == 1):
+            print(usernumber, "is not a prime number")
+        else:
+            print(usernumber, "is a prime number")
+    
+    
+    print("The binary representation of", usernumber, "is ", end = '')
+    DecimalToBinary(usernumber)
+    print("\n")
 
+
+        
 main()
