@@ -16,6 +16,8 @@ int fib(int age)
 	return sum;
 }
 
+
+
 long decTobin(int n)
 {
 	int place = 1;
