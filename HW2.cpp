@@ -14,7 +14,7 @@ int main()
 		printf("There has been an error!");
 		exit(1);
 	}
-
+	fscanf(f, "%d", ps);
 	while (fscanf(f, "%d", ps) != EOF)
 	{
 		sum = sum + *ps;
