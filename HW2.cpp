@@ -19,10 +19,13 @@ int main()
 	{
 		sum = sum + *ps;
 	}
-	printf("%d\n", sum);
 
 	fclose(f);
 	free(ps);
+
+	f = fopen("result.txt", "w+");
+	fprintf(f, "%d\n", sum);
+	fclose(f);
 	return EXIT_SUCCESS;
 }
 
